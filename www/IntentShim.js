@@ -15,8 +15,6 @@ function IntentShim() {
 
 IntentShim.prototype.ACTION_SEND = "android.intent.action.SEND";
 IntentShim.prototype.ACTION_VIEW = "android.intent.action.VIEW";
-IntentShim.prototype.ACTION_INSTALL_PACKAGE = "android.intent.action.INSTALL_PACKAGE";
-IntentShim.prototype.ACTION_UNINSTALL_PACKAGE = "android.intent.action.UNINSTALL_PACKAGE";
 IntentShim.prototype.EXTRA_TEXT = "android.intent.extra.TEXT";
 IntentShim.prototype.EXTRA_SUBJECT = "android.intent.extra.SUBJECT";
 IntentShim.prototype.EXTRA_STREAM = "android.intent.extra.STREAM";

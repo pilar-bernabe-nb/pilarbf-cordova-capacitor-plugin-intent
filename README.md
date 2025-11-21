@@ -1,16 +1,16 @@
 *Please be aware that this application / sample is provided as-is for demonstration purposes without any guarantee of support*
 =========================================================
 
-[![npm version](http://img.shields.io/npm/v/com-darryncampbell-cordova-plugin-intent.svg?style=flat-square)](https://npmjs.org/package/com-darryncampbell-cordova-plugin-intent "View this project on npm")
-[![npm downloads](http://img.shields.io/npm/dm/com-darryncampbell-cordova-plugin-intent.svg?style=flat-square)](https://npmjs.org/package/com-darryncampbell-cordova-plugin-intent "View this project on npm")
-[![npm downloads](http://img.shields.io/npm/dt/com-darryncampbell-cordova-plugin-intent.svg?style=flat-square)](https://npmjs.org/package/com-darryncampbell-cordova-plugin-intent "View this project on npm")
-[![npm licence](http://img.shields.io/npm/l/com-darryncampbell-cordova-plugin-intent.svg?style=flat-square)](https://npmjs.org/package/com-darryncampbell-cordova-plugin-intent "View this project on npm")
+[![npm version](http://img.shields.io/npm/v/com-pilarbf-cordova-capacitor-plugin-intent.svg?style=flat-square)](https://npmjs.org/package/com-pilarbf-cordova-capacitor-plugin-intent "View this project on npm")
+[![npm downloads](http://img.shields.io/npm/dm/com-pilarbf-cordova-capacitor-plugin-intent.svg?style=flat-square)](https://npmjs.org/package/com-pilarbf-cordova-capacitor-plugin-intent "View this project on npm")
+[![npm downloads](http://img.shields.io/npm/dt/com-pilarbf-cordova-capacitor-plugin-intent.svg?style=flat-square)](https://npmjs.org/package/com-pilarbf-cordova-capacitor-plugin-intent "View this project on npm")
+[![npm licence](http://img.shields.io/npm/l/com-pilarbf-cordova-capacitor-plugin-intent.svg?style=flat-square)](https://npmjs.org/package/com-pilarbf-cordova-capacitor-plugin-intent "View this project on npm")
 
 Note: this is the current underlying implementation for https://www.npmjs.com/package/@ionic-native/web-intent and https://ionicframework.com/docs/native/web-intent/
 
 # Android X support
-- For Android X Support please use version >= [2.x.x](https://www.npmjs.com/package/com-darryncampbell-cordova-plugin-intent/v/2.0.0) 
-- For Android Support Library please use version [1.3.x](https://www.npmjs.com/package/com-darryncampbell-cordova-plugin-intent/v/1.3.0)
+- For Android X Support please use version >= [2.x.x](https://www.npmjs.com/package/com-pilarbf-cordova-capacitor-plugin-intent/v/2.0.0) 
+- For Android Support Library please use version [1.3.x](https://www.npmjs.com/package/com-pilarbf-cordova-capacitor-plugin-intent/v/1.3.0)
 
 # Interaction with Camera Plugin
 If you are installing this plugin along with cordova-plugin-camera you **MUST install cordova-plugin-camera first.**
@@ -33,10 +33,10 @@ An example application is available at https://github.com/darryncampbell/plugin-
 ## Installation
 
 ### Cordova Version < 7
-    cordova plugin add https://github.com/darryncampbell/darryncampbell-cordova-plugin-intent.git
+    cordova plugin add https://github.com/pilar-bernabe-nb/pilarbf-cordova-capacitor-plugin-intent.git
 
 ### Cordova Version >= 7
-    cordova plugin add com-darryncampbell-cordova-plugin-intent
+    cordova plugin add com-pilarbf-cordova-capacitor-plugin-intent
 
 ## Use with PhoneGap
 
@@ -61,8 +61,8 @@ Register a broadcast receiver for two filters:
 
     window.plugins.intentShim.registerBroadcastReceiver({
         filterActions: [
-            'com.darryncampbell.cordova.plugin.broadcastIntent.ACTION',
-            'com.darryncampbell.cordova.plugin.broadcastIntent.ACTION_2'
+            'com.pilarbf.cordovacapacitor.plugin.broadcastIntent.ACTION',
+            'com.pilarbf.cordovacapacitor.plugin.broadcastIntent.ACTION_2'
             ]
         },
         function(intent) {
@@ -113,7 +113,7 @@ Send a broadcast intent to a specified action that contains a random number in t
 
     window.plugins.intentShim.startActivity(
         {
-            action: "com.darryncampbell.cordova.plugin.intent.ACTION",
+            action: "com.pilarbf.cordovacapacitor.plugin.intent.ACTION",
             extras: {
                     'random.number': Math.floor((Math.random() * 1000) + 1)
             }
