@@ -1,63 +1,66 @@
-*Please be aware that this application / sample is provided as-is for demonstration purposes without any guarantee of support*
-=========================================================
+*Tenga en cuenta que esta aplicación / muestra se proporciona tal cual con fines de demostración sin ninguna garantía de soporte*
 
-[![npm version](http://img.shields.io/npm/v/com-pilarbf-cordova-capacitor-plugin-intent.svg?style=flat-square)](https://npmjs.org/package/com-pilarbf-cordova-capacitor-plugin-intent "View this project on npm")
-[![npm downloads](http://img.shields.io/npm/dm/com-pilarbf-cordova-capacitor-plugin-intent.svg?style=flat-square)](https://npmjs.org/package/com-pilarbf-cordova-capacitor-plugin-intent "View this project on npm")
-[![npm downloads](http://img.shields.io/npm/dt/com-pilarbf-cordova-capacitor-plugin-intent.svg?style=flat-square)](https://npmjs.org/package/com-pilarbf-cordova-capacitor-plugin-intent "View this project on npm")
-[![npm licence](http://img.shields.io/npm/l/com-pilarbf-cordova-capacitor-plugin-intent.svg?style=flat-square)](https://npmjs.org/package/com-pilarbf-cordova-capacitor-plugin-intent "View this project on npm")
+Este es un fork de [https://github.com/darryncampbell/darryncampbell-cordova-plugin-intent](https://github.com/darryncampbell/darryncampbell-cordova-plugin-intent).
 
-Note: this is the current underlying implementation for https://www.npmjs.com/package/@ionic-native/web-intent and https://ionicframework.com/docs/native/web-intent/
+Actualmente se encuentra en proceso de migración a Capacitor. De momento, la única modificación realizada es la eliminación de la dependencia de `REQUEST_INSTALL_PACKAGES`, que era innecesaria y bloqueaba los despliegues en Google Play.
 
-# Android X support
-- For Android X Support please use version >= [2.x.x](https://www.npmjs.com/package/com-pilarbf-cordova-capacitor-plugin-intent/v/2.0.0) 
-- For Android Support Library please use version [1.3.x](https://www.npmjs.com/package/com-pilarbf-cordova-capacitor-plugin-intent/v/1.3.0)
+!npm version
+!npm downloads
+!npm downloads
+!npm licence
 
-# Interaction with Camera Plugin
-If you are installing this plugin along with cordova-plugin-camera you **MUST install cordova-plugin-camera first.**
+Nota: esta es la implementación subyacente actual para https://www.npmjs.com/package/@ionic-native/web-intent y https://ionicframework.com/docs/native/web-intent/
 
-# Overview
-This Cordova plugin provides a general purpose shim layer for the Android intent mechanism, exposing various ways to handle sending and receiving intents.
+# Soporte para Android X
+- Para soporte de Android X, utilice la versión >= 2.x.x 
+- Para la Biblioteca de Soporte de Android, utilice la versión 1.3.x
 
-## Credits
-This project uses code released under the following MIT projects:
-- https://github.com/napolitano/cordova-plugin-intent (marked as no longer maintained)
-- https://github.com/Initsogar/cordova-webintent.git (no longer available on github but the project is forked here: https://github.com/darryncampbell/cordova-webintent)
-This project is also released under MIT.  Credit is given in the code where appropriate
+# Interacción con el Plugin de Cámara
+Si está instalando este plugin junto con cordova-plugin-camera, **DEBE instalar cordova-plugin-camera primero.**
+
+# Resumen
+Este plugin de Cordova proporciona una capa de shim de propósito general para el mecanismo de intent de Android, exponiendo varias formas de manejar el envío y la recepción de intents.
+
+## Créditos
+Este proyecto utiliza código publicado bajo los siguientes proyectos MIT:
+- https://github.com/napolitano/cordova-plugin-intent (marcado como ya no mantenido)
+- https://github.com/Initsogar/cordova-webintent.git (ya no está disponible en github pero el proyecto está bifurcado aquí: https://github.com/darryncampbell/cordova-webintent)
+Este proyecto también se publica bajo MIT. El crédito se da en el código cuando es apropiado.
 
 ## IntentShim
-This plugin defines a `window.plugins.intentShim` object which provides an API for interacting with the Android intent mechanism on any Android device.
+Este plugin define un objeto `window.plugins.intentShim` que proporciona una API para interactuar con el mecanismo de intent de Android en cualquier dispositivo Android.
 
-## Testing / Example
-An example application is available at https://github.com/darryncampbell/plugin-intent-api-exerciser to demonstrate the API and can be used to test the functionality.
+## Pruebas / Ejemplo
+Una aplicación de ejemplo está disponible en https://github.com/darryncampbell/plugin-intent-api-exerciser para demostrar la API y se puede utilizar para probar la funcionalidad.
 
-## Installation
+## Instalación
 
-### Cordova Version < 7
+### Cordova Versión < 7
     cordova plugin add https://github.com/pilar-bernabe-nb/pilarbf-cordova-capacitor-plugin-intent.git
 
-### Cordova Version >= 7
+### Cordova Versión >= 7
     cordova plugin add com-pilarbf-cordova-capacitor-plugin-intent
 
-## Use with PhoneGap
+## Uso con PhoneGap
 
-Please use the latest PhoneGap cli when including this plugin, please refer to [Issue 63](https://github.com/darryncampbell/darryncampbell-cordova-plugin-intent/issues/63) for context. 
+Utilice la última versión de PhoneGap cli al incluir este plugin, consulte el Issue 63 para más contexto. 
 
-## Supported Platforms
+## Plataformas Soportadas
 - Android
 
 ## intentShim.registerBroadcastReceiver
 
-Registers a broadcast receiver for the specified filters
+Registra un receptor de difusión para los filtros especificados.
 
     window.plugins.intentShim.registerBroadcastReceiver(filters, callback);
 
-### Description
+### Descripción
 
-The `intentShim.registerBroadcastReceiver` function registers a dynamic broadcast receiver for the specified list of filters and invokes the specified callback when any of those filters are received
+La función `intentShim.registerBroadcastReceiver` registra un receptor de difusión dinámico para la lista de filtros especificada e invoca el callback especificado cuando se recibe cualquiera de esos filtros.
 
-### Example
+### Ejemplo
 
-Register a broadcast receiver for two filters:
+Registrar un receptor de difusión para dos filtros:
 
     window.plugins.intentShim.registerBroadcastReceiver({
         filterActions: [
@@ -73,21 +76,21 @@ Register a broadcast receiver for two filters:
 
 ## intentShim.unregisterBroadcastReceiver
 
-Unregisters any BroadcastRecivers
+Anula el registro de cualquier BroadcastReceiver.
 
     window.plugins.intentShim.unregisterBroadcastReceiver();
 
-### Description
+### Descripción
 
-The `intentShim.unregisterBroadcastReceiver` function unregisters all broadcast receivers registered with `intentShim.registerBroadcastReceiver(filters, callback);`.  No further broadcasts will be received for any registered filter after this call.
+La función `intentShim.unregisterBroadcastReceiver` anula el registro de todos los receptores de difusión registrados con `intentShim.registerBroadcastReceiver(filters, callback);`. No se recibirán más difusiones para ningún filtro registrado después de esta llamada.
 
-### Android Quirks
+### Peculiaridades de Android
 
-The developer is responsible for calling unregister / register when their application goes into the background or comes back to the foreground, if desired.
+El desarrollador es responsable de llamar a `unregister` / `register` cuando su aplicación pasa a segundo plano o vuelve a primer plano, si lo desea.
 
-### Example
+### Ejemplo
 
-Unregister the broadcast receiver when the application receives an onPause event:
+Anular el registro del receptor de difusión cuando la aplicación recibe un evento onPause:
 
     bindEvents: function() {
         document.addEventListener('pause', this.onPause, false);
@@ -99,17 +102,17 @@ Unregister the broadcast receiver when the application receives an onPause event
 
 ## intentShim.sendBroadcast
 
-Sends a broadcast intent
+Envía un intent de difusión.
 
     window.plugins.intentShim.sendBroadcast(action, extras, successCallback, failureCallback);
 
-### Description
+### Descripción
 
-The `intentShim.sendBroadcast` function sends an Android broadcast intent with a specified action
+La función `intentShim.sendBroadcast` envía un intent de difusión de Android con una acción especificada.
 
-### Example
+### Ejemplo
 
-Send a broadcast intent to a specified action that contains a random number in the extras
+Enviar un intent de difusión a una acción especificada que contiene un número aleatorio en los extras:
 
     window.plugins.intentShim.startActivity(
         {
@@ -125,27 +128,27 @@ Send a broadcast intent to a specified action that contains a random number in t
 
 ## intentShim.onIntent
 
-Returns the content of the intent used whenever the application activity is launched
+Devuelve el contenido del intent utilizado cada vez que se inicia la actividad de la aplicación.
 
     window.plugins.intentShim.onIntent(callback);
 
-### Description
+### Descripción
 
-The `intentShim.onIntent` function returns the intent which launched the Activity and maps to the Android Activity's onNewIntent() method, https://developer.android.com/reference/android/app/Activity.html#onNewIntent(android.content.Intent).  The registered callback is invoked whenever the activity is launched
+La función `intentShim.onIntent` devuelve el intent que lanzó la Actividad y se asigna al método onNewIntent() de la Actividad de Android, https://developer.android.com/reference/android/app/Activity.html#onNewIntent(android.content.Intent). El callback registrado se invoca cada vez que se inicia la actividad.
 
-### Android Quirks
+### Peculiaridades de Android
 
-By default the android application will be created with launch mode set to 'SingleTop'.  If you wish to change this to 'SingleTask' you can do so by modifying `config.xml` as follows:
+Por defecto, la aplicación de Android se creará con el modo de lanzamiento establecido en 'SingleTop'. Si desea cambiar esto a 'SingleTask', puede hacerlo modificando `config.xml` de la siguiente manera:
 
     <platform name="android">
         ...
         <preference name="AndroidLaunchMode" value="singleTask"/>
     </platform>
-See https://www.mobomo.com/2011/06/android-understanding-activity-launchmode/ for more information on the differences between the two.
+Consulte https://www.mobomo.com/2011/06/android-understanding-activity-launchmode/ para obtener más información sobre las diferencias entre los dos.
 
-### Example
+### Ejemplo
 
-Registers a callback to be invoked
+Registra un callback para ser invocado:
 
     window.plugins.intentShim.onIntent(function (intent) {
         console.log('Received Intent: ' + JSON.stringify(intent.extras));
@@ -153,21 +156,21 @@ Registers a callback to be invoked
 
 ## intentShim.startActivity
 
-Starts a new activity using an intent built from action, url, type, extras or some subset of those parameters
+Inicia una nueva actividad utilizando un intent construido a partir de action, url, type, extras o algún subconjunto de esos parámetros.
 
     window.plugins.intentShim.startActivity(params, successCallback, failureCallback);
 
-### Description
+### Descripción
 
-The `intentShim.startActivity` function maps to Android's activity method startActivity, https://developer.android.com/reference/android/app/Activity.html#startActivity(android.content.Intent) to launch a new activity.
+La función `intentShim.startActivity` se asigna al método de actividad de Android startActivity, https://developer.android.com/reference/android/app/Activity.html#startActivity(android.content.Intent) para lanzar una nueva actividad.
 
-### Android Quirks
+### Peculiaridades de Android
 
-Some common actions are defined as constants in the plugin, see below.
+Algunas acciones comunes se definen como constantes en el plugin, ver más abajo.
 
-### Examples
+### Ejemplos
 
-Launch the maps activity
+Lanzar la actividad de mapas:
 
     window.plugins.intentShim.startActivity(
     {
@@ -178,7 +181,7 @@ Launch the maps activity
     function() {alert('Failed to open URL via Android Intent')}
     );
 
-Launch the web browser
+Lanzar el navegador web:
 
     window.plugins.intentShim.startActivity(
     {
@@ -191,15 +194,15 @@ Launch the web browser
 
 ## intentShim.getIntent
 
-Retrieves the intent that launched the activity
+Recupera el intent que lanzó la actividad.
 
     window.plugins.intentShim.getIntent(resultCallback, failureCallback);
 
-### Description
+### Descripción
 
-The `intentShim.getIntent` function maps to Android's activity method getIntent, https://developer.android.com/reference/android/app/Activity.html#getIntent() to return the intent that started this activity.
+La función `intentShim.getIntent` se asigna al método de actividad de Android getIntent, https://developer.android.com/reference/android/app/Activity.html#getIntent() para devolver el intent que inició esta actividad.
 
-### Example
+### Ejemplo
 
     window.plugins.intentShim.getIntent(
         function(intent)
@@ -218,21 +221,21 @@ The `intentShim.getIntent` function maps to Android's activity method getIntent,
 
 ## intentShim.startActivityForResult
 
-Starts a new activity and return the result to the application
+Inicia una nueva actividad y devuelve el resultado a la aplicación.
 
     window.plugins.intentShim.startActivityForResult(params, resultCallback, failureCallback);
 
-### Description
+### Descripción
 
-The `intentShim.startActivityForResult` function maps to Android's activity method startActivityForResult, https://developer.android.com/reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int) to launch a new activity and the resulting data is returned via the resultCallback.
+La función `intentShim.startActivityForResult` se asigna al método de actividad de Android startActivityForResult, https://developer.android.com/reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int) para lanzar una nueva actividad y los datos resultantes se devuelven a través del resultCallback.
 
-### Android Quirks
+### Peculiaridades de Android
 
-Some common actions are defined as constants in the plugin, see below.
+Algunas acciones comunes se definen como constantes en el plugin, ver más abajo.
 
-### Example
+### Ejemplo
 
-Pick an Android contact
+Elegir un contacto de Android:
 
     window.plugins.intentShim.startActivityForResult(
     {
@@ -254,21 +257,21 @@ Pick an Android contact
 
 ## intentShim.sendResult
 
-Assuming this application was started with `intentShim.startActivityForResult`, send a result back
+Suponiendo que esta aplicación se inició con `intentShim.startActivityForResult`, envía un resultado de vuelta.
 
     window.plugins.intentShim.sendResult(args, callback);
 
-### Description
+### Descripción
 
-The `intentShim.sendResult` function returns an `Activity.RESULT_OK` Intent to the activity that started this application, along with any extras that you want to send along (as `args.extras` object), and a `callback` function. It then calls Android Activity's finish() method, https://developer.android.com/reference/android/app/Activity.html#finish().
+La función `intentShim.sendResult` devuelve un Intent `Activity.RESULT_OK` a la actividad que inició esta aplicación, junto with cualquier extra que desee enviar (como objeto `args.extras`), y una función `callback`. Luego llama al método finish() de la Actividad de Android, https://developer.android.com/reference/android/app/Activity.html#finish().
 
-### Android Quirks
+### Peculiaridades de Android
 
-Both `args` and `callback` arguments have to be provided. If you do not need the functionality, send an empty object and an empty function
+Ambos argumentos `args` y `callback` deben ser proporcionados. Si no necesita la funcionalidad, envíe un objeto vacío y una función vacía.
 
     window.plugins.intentShim.sendResult({}, function() {});
 
-### Example
+### Ejemplo
 
     window.plugins.intentShim.sendResult(
         {
@@ -285,17 +288,17 @@ Both `args` and `callback` arguments have to be provided. If you do not need the
     );
 
 ## intentShim.packageExists
-Returns a boolean indicating if a specific package is installed on the device.
+Devuelve un booleano que indica si un paquete específico está instalado en el dispositivo.
 
 ```js
 window.plugins.intentShim.packageExists(packageName, callback);
 ```
 
-### Description
+### Descripción
 
-The `intentShim.packageExists` function returns a boolean indicating if a specific [package](https://developer.android.com/studio/build/configure-app-module#set_the_application_id) is installed on the current device.
+La función `intentShim.packageExists` devuelve un booleano que indica si un paquete específico package está instalado en el dispositivo actual.
 
-### Example
+### Ejemplo
 ```js
 const packageName = 'com.android.contacts';
 
@@ -308,9 +311,9 @@ window.plugins.intentShim.packageExists(packageName, (exists) => {
 });
 ```
 
-## Predefined Constants
+## Constantes Predefinidas
 
-The following constants are defined in the plugin for use in JavaScript
+Las siguientes constantes están definidas en el plugin para su uso en JavaScript
 - window.plugins.intentShim.ACTION_SEND
 - window.plugins.intentShim.ACTION_VIEW
 - window.plugins.intentShim.EXTRA_TEXT
@@ -322,9 +325,6 @@ The following constants are defined in the plugin for use in JavaScript
 - window.plugins.intentShim.ACTION_GET_CONTENT
 - window.plugins.intentShim.ACTION_PICK
 
-## Tested Versions
+## Versiones Probadas
 
-Tested with Cordova version 6.5.0 and Cordova Android version 6.2.1
-
-
-
+Probado con la versión 6.5.0 de Cordova y la versión 6.2.1 de Cordova Android.
